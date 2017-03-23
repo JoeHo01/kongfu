@@ -1,0 +1,47 @@
+﻿@model CommunityBackend.Models.Merchant
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "审核";    
+}
+
+<h2>审核</h2>
+
+@Html.Partial("_DetailList", Model)
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>商家</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MerchantID)
+        @Html.HiddenFor(model => model.phonenumber)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Checked, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Checked)
+                    @Html.ValidationMessageFor(model => model.Checked, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="提交" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("返回目录", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

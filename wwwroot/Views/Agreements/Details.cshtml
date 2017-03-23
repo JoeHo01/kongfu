@@ -1,0 +1,35 @@
+﻿@using CommunityBackend.Models;
+@model CommunityBackend.Models.Agreement
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看"; 
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>协议</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AgreementType)
+        </dt>
+
+        <dd>
+            @Model.AgreementType.GetDisplayName()
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.AgreementType }) |
+    @Html.ActionLink("返回目录", "Index")
+</p>

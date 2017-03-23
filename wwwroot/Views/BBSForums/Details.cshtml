@@ -1,0 +1,35 @@
+﻿@model CommunityBackend.Models.BBSForum
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看"; 
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>用户论坛版块</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brief)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.BBSForumID }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

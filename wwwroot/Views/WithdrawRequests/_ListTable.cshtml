@@ -1,0 +1,58 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+
+@model PagedList<CommunityBackend.Models.WithdrawRequest>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Craftman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Merchant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Finished)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Craftman.phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Merchant.phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Finished)
+            </td>
+            <td>
+                @Html.ActionLink("确认", "Edit", new { id = item.WithdrawRequestID }) |
+                @Html.ActionLink("查看", "Details", new { id = item.WithdrawRequestID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.WithdrawRequestID })
+            </td>
+        </tr>
+    }
+
+</table>

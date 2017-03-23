@@ -1,0 +1,60 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+@model PagedList<CommunityBackend.Models.Payment>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PayTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Craftman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Merchant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.method)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Finished)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Craftman.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Merchant.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.nickname)
+        </td>
+        <td>
+            @item.type.GetDisplayName()
+        </td>
+        <td>
+            @item.method.GetDisplayName()
+        </td>
+        <td>
+            @item.Finished.DisplayYesOrNoStr()
+        </td>
+        <td>
+            @Html.ActionLink("查看", "Details", new { id=item.PaymentID })
+        </td>
+    </tr>
+}
+
+</table>

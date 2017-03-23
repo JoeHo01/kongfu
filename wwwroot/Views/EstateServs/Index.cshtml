@@ -1,0 +1,25 @@
+﻿@model PagedList<CommunityBackend.Models.EstateServ>
+@using Webdiyer.WebControls.Mvc;
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "物业管理";
+
+    List<CommunityBackend.Models.Community> cl = ViewBag.Communities;   
+}
+
+@Html.Partial("_SearchTable", Model)
+
+<h2>物业列表</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+
+@Html.Partial("_ListTable", Model)
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

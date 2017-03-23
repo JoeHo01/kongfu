@@ -1,0 +1,71 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+@model PagedList<CommunityBackend.Models.Coupon>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "折扣管理";
+}
+
+<h2>折扣目录</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Merchant.phonenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor((CommunityBackend.Models.Coupon model) => model.Count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UntilDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Merchant.phonenumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UntilDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @item.category.GetDisplayName()
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.CouponID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.CouponID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

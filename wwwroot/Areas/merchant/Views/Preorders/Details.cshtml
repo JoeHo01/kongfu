@@ -1,0 +1,91 @@
+﻿@model CommunityBackend.Models.Preorder
+@using CommunityBackend.Models;
+
+@{
+    Layout = "~/Areas/merchant/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>预约单</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preorderer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preorderer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreorderPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreorderPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Merchant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Merchant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreorderTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreorderTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Model.Status.GetDisplayName()
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("返回目录", "Index")
+</p>

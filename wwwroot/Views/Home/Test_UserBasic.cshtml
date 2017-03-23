@@ -1,0 +1,946 @@
+﻿
+<div>
+    <p><input type="button" id="UserRegister" value="用户注册" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserRegister").click(function () {
+                $.getJSON('/api/User/Reg/18640054846/666666', function (json) {
+                    $("#All_result").append("用户注册<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserRegisterForQQ" value="用户注册 － QQ" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserRegisterForQQ").click(function () {
+                $.post('/api/User/RegForQQ',
+                    {
+                        openid: "1234567890",
+                        nickname: "QQ用户",
+                        phonenum: "7758768",
+                        CommunityID: 1,
+                        Address: "just a test only.",
+                        HeadImgURL: "http://182.92.7.188/Content/Ware/8/0.jpg"
+                    },
+                    function (json) {
+                    $("#All_result").append("用户注册 － 地址<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserLogin" value="用户登录" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserLogin").click(function () {
+                $.getJSON('/api/User/Login/18640054846/666666/0', function (json) {
+                    $("#All_result").append("用户登录<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserLoginByQQ" value="用户从QQ登录" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserLoginByQQ").click(function () {
+                $.getJSON('/api/User/LoginByQQ/4B0EEF30A66228BBC856975F412FF480/0', function (json) {
+                    $("#All_result").append("用户从QQ登录<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserInfo" value="获取用户资料" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserInfo").click(function () {
+                $.getJSON('/api/User/123', function (json) {
+                    $("#All_result").append("获取用户资料<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserChangePwd" value="用户密码修改" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserChangePwd").click(function () {
+                $.getJSON('/api/User/ChangePwd/123/123/456', function (json) {
+                    $("#All_result").append("用户密码修改<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserChangeQQOpenID" value="用户修改QQOpenID" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserChangeQQOpenID").click(function () {
+                $.getJSON('/api/User/Update/123/qqopenid/1111111111', function (json) {
+                    $("#All_result").append("用户修改QQOpenID<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserChangeneednotify" value="用户修改 - 是否通知" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserChangeneednotify").click(function () {
+                $.getJSON('/api/User/Update/123/neednotify/false', function (json) {
+                    $("#All_result").append("用户修改 - 是否通知<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserSign" value="用户签到" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserSign").click(function () {
+                $.getJSON('/api/User/Sign/123', function (json) {
+                    $("#All_result").append("用户签到<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserSignPointRules" value="用户签到规则" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserSignPointRules").click(function () {
+                $.getJSON('/api/User/PointRules', function (json) {
+                    $("#All_result").append("用户签到规则<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkAddForRepair" value="添加维护单评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkAddForRepair").click(function () {
+                $.post('/api/Remark/AddForRepair',
+                    {
+                        RepairOrderID: 4,
+                        UserPhonenum: "123",
+                        Rate: "4",
+                        Content: "维护单评价"
+                    },
+                    function (json) {
+                        $("#All_result").append("添加维护单评价<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkAddForPreorder" value="添加预约单评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkAddForPreorder").click(function () {
+                $.post('/api/Remark/AddForPreorder',
+                    {
+                        PreorderID: 2,
+                        UserPhonenum: "123",
+                        Rate: "4",
+                        Content: "预约单评价"
+                    },
+                    function (json) {
+                        $("#All_result").append("添加预约单评价<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkReply" value="添加评价回复" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkReply").click(function () {
+                $.post('/api/Remark/Reply/1',
+                    {
+                        Reply: "评价回复"
+                    },
+                    function (json) {
+                        $("#All_result").append("添加评价回复<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetByRepair" value="取得维护单评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetByRepair").click(function () {
+                $.getJSON('/api/Remark/GetByRepair/1', function (json) {
+                    $("#All_result").append("取得维护单评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetByPreorder" value="取得预约单评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetByPreorder").click(function () {
+                $.getJSON('/api/Remark/GetByPreorder/1', function (json) {
+                    $("#All_result").append("取得预约单评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetByCraftman" value="取得手艺人的评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetByCraftman").click(function () {
+                $.getJSON('/api/Remark/GetByCraftman/456/50', function (json) {
+                    $("#All_result").append("取得手艺人的评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetPageByCraftman" value="按页取得手艺人的评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetPageByCraftman").click(function () {
+                $.getJSON('/api/Remark/GetByCraftman/456/3/1', function (json) {
+                    $("#All_result").append("按页取得手艺人的评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetByUser" value="取得用户的评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetByUser").click(function () {
+                $.getJSON('/api/Remark/GetByUser/123/2', function (json) {
+                    $("#All_result").append("取得用户的评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetByWare" value="按页取得商品评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetByWare").click(function () {
+                $.getJSON('/api/Remark/GetByWare/1/3/1', function (json) {
+                    $("#All_result").append("按页取得商品评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetReplies" value="取得评介回复" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetReplies").click(function () {
+                $.getJSON('/api/Remark/GetReplies/1', function (json) {
+                    $("#All_result").append("取得评介回复<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BBSPost" value="发表论坛主贴" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSPost").click(function () {
+                $.post('/api/BBS/Post/18610240123',
+                    {
+                        Title: "主贴测试一",
+                        Content: "主贴测试一, 这是内容。",
+                        ForumID: 1
+                    },
+                    function (json) {
+                        $("#All_result").append("发表论坛主贴<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BBSPostWithAnonymous" value="发表论坛主贴 - 匿名" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSPostWithAnonymous").click(function () {
+                $.post('/api/BBS/Post/18610240123',
+                    {
+                        Title: "匿名主贴测试",
+                        Content: "匿名主贴测试, 这是内容。",
+                        ForumID: 1,
+                        IsAnonymous: true
+                    },
+                    function (json) {
+                        $("#All_result").append("发表论坛主贴 - 匿名<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p>
+        发表论坛主贴 - 图片版
+        <form name="BBSPostWithOneImage" method="post" enctype="multipart/form-data" action="/api/BBS/Post/18610240123">
+            <div>
+                <label for="Title">标题</label>
+                <input name="Title" type="text" value="主贴测试一图片" />
+            </div>
+            <div>
+                <label for="Content">内容</label>
+                <input name="Content" type="text" value="主贴测试一图片, 这是内容。" />
+            </div>
+            <div>
+                <label for="ForumID">版块</label>
+                <input name="ForumID" type="text" value="1" />
+            </div>
+            <div>
+                <label for="Image1">文件一</label>
+                <input name="Image1" type="file" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p>
+        发表论坛主贴 - 图片版
+        <form name="BBSPostWithImage" method="post" enctype="multipart/form-data" action="/api/BBS/Post/18610240123">
+            <div>
+                <label for="Title">标题</label>
+                <input name="Title" type="text" value="主贴测试一" />
+            </div>
+            <div>
+                <label for="Content">内容</label>
+                <input name="Content" type="text" value="主贴测试一, 这是内容。" />
+            </div>
+            <div>
+                <label for="ForumID">版块</label>
+                <input name="ForumID" type="text" value="1" />
+            </div>
+            <div>
+                <label for="Image1">文件一</label>
+                <input name="Image1" type="file" />
+            </div>
+            <div>
+                <label for="Image2">文件二</label>
+                <input name="Image2" type="file" />
+            </div>
+            <div>
+                <label for="Image3">文件三</label>
+                <input name="Image3" type="file" />
+            </div>
+            <div>
+                <label for="Image4">文件四</label>
+                <input name="Image4" type="file" />
+            </div>
+            <div>
+                <label for="Image5">文件五</label>
+                <input name="Image5" type="file" />
+            </div>
+            <div>
+                <label for="Image6">文件六</label>
+                <input name="Image6" type="file" />
+            </div>
+            <div>
+                <label for="Image7">文件七</label>
+                <input name="Image7" type="file" />
+            </div>
+            <div>
+                <label for="Image8">文件八</label>
+                <input name="Image8" type="file" />
+            </div>
+            <div>
+                <label for="Image9">文件九</label>
+                <input name="Image9" type="file" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p><input type="button" id="BBSReply" value="回复论坛贴子" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSReply").click(function () {
+                $.post('/api/BBS/Reply/123/1',
+                    {
+                        Title: "回贴测试一",
+                        Content: "回贴测试一, 这是内容。"
+                    },
+                    function (json) {
+                        $("#All_result").append("回复论坛贴子<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="BBSReplyEmptyTitle" value="回复论坛贴子 - 空标题" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSReplyEmptyTitle").click(function () {
+                $.post('/api/BBS/Reply/123/1',
+                    {
+                        Title: "",
+                        Content: "回贴测试二，空标题, 这是内容。"
+                    },
+                    function (json) {
+                        $("#All_result").append("回复论坛贴子 - 空标题<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+
+<div>
+    <p><input type="button" id="BBSAgree" value="论坛顶贴" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSAgree").click(function () {
+                $.getJSON('/api/BBS/Agree/123/1',
+                    function (json) {
+                        $("#All_result").append("论坛顶贴<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BBSForum" value="获取主贴列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSForum").click(function () {
+                $.getJSON('/api/BBS/Forum/1/1/10/1',
+                    function (json) {
+                        $("#All_result").append("获取主贴列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BBSRecommended" value="取得论坛推荐贴子" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSRecommended").click(function () {
+                $.getJSON('/api/BBS/Recommended/1/2',
+                    function (json) {
+                        $("#All_result").append("取得论坛推荐贴子<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BBSReplys" value="获取回复列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSReplys").click(function () {
+                $.getJSON('/api/BBS/Replys/1/5/1',
+                    function (json) {
+                        $("#All_result").append("获取回复列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BBSPostDetail" value="取得贴子详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSPostDetail").click(function () {
+                $.getJSON('/api/BBS/Detail/1',
+                    function (json) {
+                        $("#All_result").append("取得贴子详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BBSSearch" value="论坛贴子搜索" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BBSSearch").click(function () {
+                $.getJSON('/api/BBS/Search/搜索关键字/1/2/1',
+                    function (json) {
+                        $("#All_result").append("论坛贴子搜索<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="InfoNewsList" value="信息列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#InfoNewsList").click(function () {
+                $.getJSON('/api/InfoNews/1/10/1',
+                    function (json) {
+                        $("#All_result").append("信息列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="InfoNewsInfo" value="信息详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#InfoNewsInfo").click(function () {
+                $.getJSON('/api/InfoNews/1',
+                    function (json) {
+                        $("#All_result").append("信息详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="LocalNewsList" value="新信息列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#LocalNewsList").click(function () {
+                $.getJSON('/api/LocalNews/10/1',
+                    function (json) {
+                        $("#All_result").append("新信息列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="LocalNewsInfo" value="新信息详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#LocalNewsInfo").click(function () {
+                $.getJSON('/api/LocalNews/1',
+                    function (json) {
+                        $("#All_result").append("信息详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="EstateNoticeList" value="物业通知列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#EstateNoticeList").click(function () {
+                $.getJSON('/api/Estate/Notice/1/5/1',
+                    function (json) {
+                        $("#All_result").append("物业通知列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="EstatRepairReport" value="物业报修" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#EstatRepairReport").click(function () {
+                $.post('/api/estate/Repair',
+                    {
+                        phonenum: "123",
+                        Location: "地址一",
+                        Title: "报修测试",
+                        Remark: "报修备注",
+                        Reporter: "报修人",
+                        ReportPhone: "242134"
+                    },
+                    function (json) {
+                        $("#All_result").append("物业报修<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MemberCardsByUser" value="我的会员卡" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MemberCardsByUser").click(function () {
+                $.getJSON('/api/Member/MyCards/123/1',
+                    function (json) {
+                        $("#All_result").append("我的会员卡<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MemberCardInfo" value="会员卡详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MemberCardInfo").click(function () {
+                $.getJSON('/api/Member/CardInfo/1',
+                    function (json) {
+                        $("#All_result").append("会员卡详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MemberOfAllCards" value="店铺会员卡" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MemberOfAllCards").click(function () {
+                $.getJSON('/api/Member/AllCards/123',
+                    function (json) {
+                        $("#All_result").append("店铺会员卡<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MemberOfAdding" value="领取会员卡" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MemberOfAdding").click(function () {
+                $.getJSON('/api/Member/Join/124/1',
+                    function (json) {
+                        $("#All_result").append("领取会员卡<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MemberOfRemoving" value="删除会员卡" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MemberOfRemoving").click(function () {
+                $.getJSON('/api/Member/Quit/1',
+                    function (json) {
+                        $("#All_result").append("删除会员卡<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CouponsForGive" value="待发放优惠卷" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CouponsForGive").click(function () {
+                $.getJSON('/api/Coupon/ForGive/0/123',
+                    function (json) {
+                        $("#All_result").append("店铺的待发放优惠卷<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CouponGetByUser" value="优惠卷领取" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CouponGetByUser").click(function () {
+                $.getJSON('/api/Coupon/GetByUser/123/4',
+                    function (json) {
+                        $("#All_result").append("优惠卷领取<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+
+<div>
+    <p><input type="button" id="CouponInfo" value="优惠卷详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CouponInfo").click(function () {
+                $.getJSON('/api/Coupon/1',
+                    function (json) {
+                        $("#All_result").append("优惠卷详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CouponsOfUser" value="用户优惠卷列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CouponsOfUser").click(function () {
+                $.getJSON('/api/Coupon/User/123/0/10/1',
+                    function (json) {
+                        $("#All_result").append("用户优惠卷列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CouponToUse" value="优惠卷使用" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CouponToUse").click(function () {
+                $.getJSON('/api/Coupon/Use/123/1',
+                    function (json) {
+                        $("#All_result").append("优惠卷使用<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DeliverInfosOfUser" value="取得用户配送信息" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DeliverInfosOfUser").click(function () {
+                $.getJSON('/api/deliverInfo/ByUser/123',
+                    function (json) {
+                        $("#All_result").append("取得用户配送信息<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DeliverInfoAdd" value="增加配送信息项" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DeliverInfoAdd").click(function () {
+                $.getJSON('/api/deliverInfo/Add/123/抚顺/0413/抚顺人',
+                    function (json) {
+                        $("#All_result").append("增加配送信息项<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DeliverInfoUpdate" value="更新配送信息项" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DeliverInfoUpdate").click(function () {
+                $.getJSON('/api/deliverInfo/Update/1/抚顺/0413/抚顺人',
+                    function (json) {
+                        $("#All_result").append("更新配送信息项<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DeliverInfoRemove" value="移除配送信息项" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DeliverInfoRemove").click(function () {
+                $.getJSON('/api/deliverInfo/Remove/1',
+                    function (json) {
+                        $("#All_result").append("移除配送信息项<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DeliverInfoSetDefault" value="设置默认配送信息项" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DeliverInfoSetDefault").click(function () {
+                $.getJSON('/api/deliverInfo/SetDefault/3',
+                    function (json) {
+                        $("#All_result").append("设置默认配送信息项<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DeliverInfoGetDefault" value="取得用户默认配送信息" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DeliverInfoGetDefault").click(function () {
+                $.getJSON('/api/deliverInfo/Default/123',
+                    function (json) {
+                        $("#All_result").append("取得用户默认配送信息<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserGetChatInfo" value="取得用户聊天账号" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetChatInfo").click(function () {
+                $.getJSON('/api/User/ChatInfo/18519051234/1',
+                    function (json) {
+                        $("#All_result").append("取得用户聊天账号<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="PreInfoList" value="预约信息列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PreInfoList").click(function () {
+                $.getJSON('/api/PreInfo/1/10/1',
+                    function (json) {
+                        $("#All_result").append("预约信息列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="PreInfoDetail" value="预约信息详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PreInfoDetail").click(function () {
+                $.getJSON('/api/PreInfo/1',
+                    function (json) {
+                        $("#All_result").append("预约信息详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>

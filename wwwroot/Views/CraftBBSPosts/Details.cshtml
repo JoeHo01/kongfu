@@ -1,0 +1,17 @@
+﻿@model CommunityBackend.Models.CraftBBSPost
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看"; 
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>手艺人帖子</h4>
+    <hr />
+    @Html.Partial("_DetailList", Model)
+</div>
+<p>
+    @Html.ActionLink("返回目录", "Index")
+</p>

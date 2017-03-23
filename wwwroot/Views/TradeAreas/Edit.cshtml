@@ -1,0 +1,63 @@
+﻿@model CommunityBackend.Models.TradeArea
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";      
+    ViewBag.Title = "编辑";
+
+    List<CommunityBackend.Models.City> cl = ViewBag.CityList;
+
+    List<SelectListItem> citylist = new List<SelectListItem>();
+    foreach (var c in cl)
+    {
+        citylist.Add(new SelectListItem() {
+                Text = c.CityName,
+                Value = c.CityID.ToString()
+            }
+        );
+    }    
+}
+
+<h2>编辑</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>商圈</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.TradeAreaID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TradeAreaName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TradeAreaName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TradeAreaName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CityID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CityID, citylist, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CityID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="保存" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("返回列表", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

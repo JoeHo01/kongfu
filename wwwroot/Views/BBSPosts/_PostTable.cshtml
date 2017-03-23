@@ -1,0 +1,61 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.BBSPost>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Forum.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recommended)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyCnt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster.Community)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Forum.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poster.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recommended)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyCnt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poster.Community.CommunityName)
+        </td>
+        <td>
+            @Html.ActionLink("推荐", "Recommend", new { id = item.BBSPostID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.BBSPostID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.BBSPostID })
+        </td>
+    </tr>
+}
+
+</table>

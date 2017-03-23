@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CommunityBackend.Models.InfoType>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "租赁类别管理";
+}
+
+<h2>租赁类别</h2>
+
+<h4>
+    @Html.ActionLink("管理预约信息类别", "Index", "PreInfoTypes")
+</h4>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoTypeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InfoTypeName)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.InfoTypeID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.InfoTypeID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.InfoTypeID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,47 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.SystemMsg>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "系统消息管理";
+}
+
+<h2>发送日志</h2>
+
+<p>
+    @Html.ActionLink("发送", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.ActionLink("再发", "Edit", new { id=item.SystemMsgID }) |
+            @Html.ActionLink("内容", "Details", new { id=item.SystemMsgID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.SystemMsgID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

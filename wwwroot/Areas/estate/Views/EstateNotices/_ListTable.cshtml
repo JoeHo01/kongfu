@@ -1,0 +1,38 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+@model PagedList<CommunityBackend.Models.EstateNotice>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @item.Type.GetDisplayName()
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.EstateNoticeID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.EstateNoticeID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.EstateNoticeID })
+        </td>
+    </tr>
+}
+
+</table>

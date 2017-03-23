@@ -1,0 +1,52 @@
+﻿@using CommunityBackend.Tool;
+@model CommunityBackend.Models.LocalNews
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>新闻</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+
+        <dt>
+            图片
+        </dt>
+
+        <dd>
+            @LocalNewsImageTool.GetImage(Model)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.LocalNewsID }) |
+    @Html.ActionLink("返回目录", "Index")
+</p>

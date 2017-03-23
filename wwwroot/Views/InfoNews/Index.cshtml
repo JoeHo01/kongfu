@@ -1,0 +1,67 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+@using System.Reflection;
+@model PagedList<CommunityBackend.Models.InfoNews>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "信息管理";
+
+    List<CommunityBackend.Models.InfoType> itl = ViewBag.InfoTypes;     
+}
+
+<h2>信息目录</h2>
+
+<h4>
+    @Html.ActionLink("管理预约信息", "Index", "PreInfoes")
+</h4>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Community)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => itl.Find(c => c.InfoTypeID == item.InfoTypeID).InfoTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Community.CommunityName)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.InfoNewsID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.InfoNewsID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.InfoNewsID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

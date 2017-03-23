@@ -1,0 +1,60 @@
+﻿@using CommunityBackend.Models;
+@model CommunityBackend.Models.EstateRepair
+
+@{
+    Layout = "~/Areas/estate/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>物业报修</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Model.Status.GetDisplayName()
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.EstateRepairID }) |
+    @Html.ActionLink("返回目录", "Index")
+</p>

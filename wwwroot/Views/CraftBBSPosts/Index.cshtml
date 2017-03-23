@@ -1,0 +1,23 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.CraftBBSPost>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "手艺人帖子管理";
+}
+
+@Html.Partial("_SearchTable", Model)
+
+<h2>手艺人帖子列表</h2>
+
+<h4>
+    @Html.ActionLink("管理用户贴子", "Index", "BBSPosts")
+</h4>
+
+@Html.Partial("_IndexTable", Model)
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

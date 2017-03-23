@@ -1,0 +1,24 @@
+﻿@model CommunityBackend.Models.Community
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "删除";   
+}
+
+<h2>删除</h2>
+
+<h3>你确定要删除吗?</h3>
+<div>
+    <h4>城市</h4>
+    <hr />
+    @Html.Partial("_DetailList", Model)
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("社区目录", "Index")
+        </div>
+    }
+</div>

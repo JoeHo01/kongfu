@@ -1,0 +1,90 @@
+﻿@model CommunityBackend.Models.RepairOrder
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>维修单</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AudioId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AudioId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatueName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postor.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Craftman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Craftman.nickname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("返回目录", "Index")
+</p>

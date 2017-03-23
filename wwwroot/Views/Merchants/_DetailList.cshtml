@@ -1,0 +1,141 @@
+﻿@using CommunityBackend.Tool;
+@using CommunityBackend.Models;
+@model CommunityBackend.Models.Merchant
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.phonenumber)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.phonenumber)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.password)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.password)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.nickname)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.nickname)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.gender)
+    </dt>
+
+    <dd>
+        @Html.DisplayForGender(Model.gender)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Checked)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Checked)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.address)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.address)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Community)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Community.CommunityName)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Rate)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Rate)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.RateCnt)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.RateCnt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.OrderCnt)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.OrderCnt)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.longitude)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.longitude)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.latitude)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.latitude)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Brief)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Brief)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.StoreName)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.StoreName)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.OpenRange)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.OpenRange)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.HeadImgExtName)
+    </dt>
+
+    <dd>
+        <img src="@HeadImageTool.Create(HeadImageType.ForMerchant).GetURL(Model.phonenumber, Model.HeadImgExtName)" class="img-thumbnail" />
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.BannerImgExtName)
+    </dt>
+
+    <dd>
+        <img src="@MerchantBannerTool.GetURL(Model)" class="img-thumbnail" />
+    </dd>
+</dl>

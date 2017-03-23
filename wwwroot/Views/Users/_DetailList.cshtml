@@ -1,0 +1,85 @@
+﻿@using CommunityBackend.Models;
+@model CommunityBackend.Models.User
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.phonenumber)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.phonenumber)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.nickname)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.nickname)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.password)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.password)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.gender)
+    </dt>
+
+    <dd>
+        @Model.gender.DisplayGenderStr()
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.QQopenid)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.QQopenid)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.address)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.address)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.point)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.point)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.communityID)
+    </dt>
+
+    <dd>
+        @ViewBag.CommunityName
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.HeadImgExtName)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.HeadImgExtName)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MoneyBalance)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MoneyBalance)
+    </dd>
+
+</dl>

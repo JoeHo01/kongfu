@@ -1,0 +1,55 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.CraftBBSPost>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Forum.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recommended)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyCnt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Forum.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poster.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recommended)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyCnt)
+        </td>
+        <td>
+            @Html.ActionLink("推荐", "Recommend", new { id = item.CraftBBSPostID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.CraftBBSPostID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.CraftBBSPostID })
+        </td>
+    </tr>
+}
+
+</table>

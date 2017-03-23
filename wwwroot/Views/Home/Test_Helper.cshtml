@@ -1,0 +1,47 @@
+﻿<div>
+    <p><input type="button" id="HelpOpenMerchantPreorder700" value="开启商家预约：18519056700" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#HelpOpenMerchantPreorder700").click(function () {
+                $.getJSON('/api/Merchant/EnablePreorder/18519056700',
+                    { lon: "123.630737", lat: "41.589485" },
+                    function (json) {
+                        $("#All_result").append("开启商家预约：18519056700<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="HelpOpenMerchantPreorder801" value="开启商家预约：18519056801" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#HelpOpenMerchantPreorder801").click(function () {
+                $.getJSON('/api/Merchant/EnablePreorder/18519056801',
+                    { lon: "123.630737", lat: "41.589485" },
+                    function (json) {
+                        $("#All_result").append("开启商家预约：18519056801<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="HelpOpenMerchantPreorder802" value="开启商家预约：18519056802" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#HelpOpenMerchantPreorder802").click(function () {
+                $.getJSON('/api/Merchant/EnablePreorder/18519056802',
+                    { lon: "123.630737", lat: "41.589485" },
+                    function (json) {
+                        $("#All_result").append("开启商家预约：18519056802<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>

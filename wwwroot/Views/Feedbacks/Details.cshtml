@@ -1,0 +1,58 @@
+﻿@model CommunityBackend.Models.Feedback
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>反馈</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Craftman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Craftman.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Merchant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Merchant.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("返回目录", "Index")
+</p>

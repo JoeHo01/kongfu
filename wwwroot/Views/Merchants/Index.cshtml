@@ -1,0 +1,26 @@
+﻿@model PagedList<CommunityBackend.Models.Merchant>
+@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml"; 
+    ViewBag.Title = "商家管理";
+
+    List<CommunityBackend.Models.ServiceType> stl = ViewBag.ServiceTypes;   
+}
+
+@Html.Partial("_SearchTable", Model)
+
+<h2>商家目录</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+
+@Html.Partial("_MerchantTable", Model)
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

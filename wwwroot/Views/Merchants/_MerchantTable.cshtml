@@ -1,0 +1,63 @@
+﻿@model PagedList<CommunityBackend.Models.Merchant>
+@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.phonenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nickname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Community)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderCnt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.phonenumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nickname)
+        </td>
+        <td>
+            @Html.DisplayForGender(item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Community.CommunityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderCnt)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.MerchantID }) |
+            @Html.ActionLink("审核", "Audit", new { id = item.MerchantID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.MerchantID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.MerchantID })
+        </td>
+    </tr>
+}
+
+</table>

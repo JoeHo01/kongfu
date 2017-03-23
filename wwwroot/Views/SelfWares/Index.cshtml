@@ -1,0 +1,23 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.Ware>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "自营商品管理";
+}
+
+@Html.Partial("_SearchTable", Model)
+
+<h2>目录</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+
+@Html.Partial("_WareTable", Model)
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CommunityBackend.Models.Service>
+
+@{
+    Layout = "~/Areas/merchant/Views/Shared/_layoutForFrame.cshtml"; 
+    ViewBag.Title = "服务管理";
+}
+
+<h2>服务目录</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceType.ServiceTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.ServiceID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.ServiceID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.ServiceID })
+        </td>
+    </tr>
+}
+
+</table>

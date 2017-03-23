@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "商圈管理";
+    
+    List<CommunityBackend.Models.City> cl = ViewBag.CityList;
+}
+
+@model IEnumerable<CommunityBackend.Models.TradeArea>
+
+
+<h2>商圈管理</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeAreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeAreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => cl.Find(c => c.CityID == item.CityID).CityName)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.TradeAreaID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.TradeAreaID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.TradeAreaID })
+        </td>
+    </tr>
+}
+
+</table>

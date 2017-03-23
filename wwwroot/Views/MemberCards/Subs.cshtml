@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CommunityBackend.Models.Member>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "所属会员";
+}
+
+<h2>会员目录</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberCard.CardName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JoinDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberCard.CardName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoinDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.nickname)
+        </td>
+    </tr>
+}
+
+</table>

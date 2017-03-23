@@ -1,0 +1,113 @@
+﻿@model CommunityBackend.Models.WithdrawRequest
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";    
+    ViewBag.Title = "删除";
+}
+
+<h2>删除</h2>
+
+<h3>你确定要删除吗?</h3>
+<div>
+    <h4>提现请求</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Craftman.phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Craftman.phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Merchant.phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Merchant.phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankAccName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAccName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpenBank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpenBank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wiexin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wiexin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alipay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alipay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finished)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回管理页", "Index")
+        </div>
+    }
+</div>

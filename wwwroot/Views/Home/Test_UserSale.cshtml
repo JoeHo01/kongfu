@@ -1,0 +1,607 @@
+﻿<div>
+    <p><input type="button" id="UserGetStores" value="按距离取得店铺列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetStores").click(function () {
+                $.getJSON('/api/User/GetStores/123',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("按距离取得店铺列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreGetWare" value="按店铺取得商品列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreGetWare").click(function () {
+                $.getJSON('/api/Store/GetWares/1',
+                    function (json) {
+                        $("#All_result").append("按店铺取得商品列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreGetWareSortCnt" value="按店铺取得商品列表 - 排序加数量" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreGetWareSortCnt").click(function () {
+                $.getJSON('/api/Store/GetWares/1/1/2',
+                    function (json) {
+                        $("#All_result").append("按店铺取得商品列表 - 排序加数量<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreGetDescWares" value="按店铺取得倒排序商品列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreGetDescWares").click(function () {
+                $.getJSON('/api/Store/GetDescWares/1',
+                    function (json) {
+                        $("#All_result").append("按店铺取得倒排序商品列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreGetRecommendWares" value="取得推荐商品列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreGetRecommendWares").click(function () {
+                $.getJSON('/api/Store/RecommendedWares/1',
+                    function (json) {
+                        $("#All_result").append("取得推荐商品列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreGetRecommendWaresWaretype" value="取得推荐商品列表 - 类别" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreGetRecommendWaresWaretype").click(function () {
+                $.getJSON('/api/Store/RecommendedWares/1/1',
+                    function (json) {
+                        $("#All_result").append("取得推荐商品列表 - 类别<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreGetRecommendWaresCount" value="取得推荐商品列表 - 数量" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreGetRecommendWaresCount").click(function () {
+                $.getJSON('/api/Store/RecommendedWares/1?Count=2',
+                    function (json) {
+                        $("#All_result").append("取得推荐商品列表 - 数量<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreGetRecommendWaresWaretypeCount" value="取得推荐商品列表 - 类别+数量" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreGetRecommendWaresWaretypeCount").click(function () {
+                $.getJSON('/api/Store/RecommendedWares/1/1?Count=2',
+                    function (json) {
+                        $("#All_result").append("取得推荐商品列表 - 类别+数量<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="WareSearch" value="商品搜索" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#WareSearch").click(function () {
+                $.getJSON('/api/Ware/Search/商品一',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("商品搜索<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreSearch" value="店铺搜索" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreSearch").click(function () {
+                $.getJSON('/api/Store/Search/789',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("店铺搜索<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="WareInfo" value="取得商品详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#WareInfo").click(function () {
+                $.getJSON('/api/Ware/1',
+                    { lon: "123.520837", lat: "41.699585", Phonenum: "123" },
+                    function (json) {
+                        $("#All_result").append("取得商品详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreInfo" value="取得店铺详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreInfo").click(function () {
+                $.getJSON('/api/Store/1',
+                    function (json) {
+                        $("#All_result").append("取得店铺详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p>
+        创建销售单
+        <form name="PlaceSaleOrder" method="post" action="/api/Sale/Place/18610240123">
+            <div>
+                <label for="DeliverAddress">配送地址</label>
+                <input name="DeliverAddress" type="text" value="配送雷阵雨" />
+            </div>
+            <div>
+                <label for="PayMethod">支付方式</label>
+                <input name="PayMethod" type="text" value="2" />
+            </div>
+            <div>
+                <label for="ReceiverPhone">收货手机</label>
+                <input name="ReceiverPhone" type="text" value="12421312" />
+            </div>
+            <div>
+                <label for="Receiver">收货人</label>
+                <input name="Receiver" type="text" value="123123" />
+            </div>
+            <div>
+                <label for="WareIDs">商品一标识</label>
+                <input name="WareIDs" type="text" value="1" />
+            </div>
+            <div>
+                <label for="WareCnts">商品一数量</label>
+                <input name="WareCnts" type="text" value="1" />
+            </div>
+            <div>
+                <label for="WareIDs">商品二标识</label>
+                <input name="WareIDs" type="text" value="2" />
+            </div>
+            <div>
+                <label for="WareCnts">商品一数量</label>
+                <input name="WareCnts" type="text" value="2" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p><input type="button" id="SaleInfo" value="查看销售单详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#SaleInfo").click(function () {
+                $.getJSON('/api/Sale/1',
+                    function (json) {
+                        $("#All_result").append("查看销售单详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="SaleHistory" value="查询商品购买历史" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#SaleHistory").click(function () {
+                $.getJSON('/api/Sale/History/18610240123/2/1',
+                    function (json) {
+                        $("#All_result").append("查询商品购买历史<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkAddForSale" value="添加销售单评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkAddForSale").click(function () {
+                $.post('/api/Remark/AddForSale',
+                    {
+                        SaleOrderID: 1,
+                        SaleOrderDetailID: 1,
+                        UserPhonenum: "123",
+                        Rate: "4",
+                        Content: "销售单评价"
+                    },
+                    function (json) {
+                        $("#All_result").append("添加销售单评价<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetByMerchant" value="取得商家的评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetByMerchant").click(function () {
+                $.getJSON('/api/Remark/GetByMerchant/789/6', function (json) {
+                    $("#All_result").append("取得商家的评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RemarkGetPageByMerchant" value="按页取得商家的评价" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RemarkGetPageByMerchant").click(function () {
+                $.getJSON('/api/Remark/GetByMerchant/789/3/1', function (json) {
+                    $("#All_result").append("按页取得商家的评价<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StoreSelfInfo" value="取得自营店详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StoreSelfInfo").click(function () {
+                $.getJSON('/api/Store/SelfStore',
+                    function (json) {
+                        $("#All_result").append("取得自营店详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserFavourStore" value="收藏店铺" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFavourStore").click(function () {
+                $.getJSON('/api/User/FavourStore/123/1',
+                    function (json) {
+                        $("#All_result").append("收藏店铺<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserFavouriteStores" value="取得收藏店铺" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFavouriteStores").click(function () {
+                $.getJSON('/api/User/favourStores/123',
+                    function (json) {
+                        $("#All_result").append("取得收藏店铺<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserUnfavourStore" value="取消收藏店铺" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserUnfavourStore").click(function () {
+                $.getJSON('/api/User/UnfavourStore/123/1',
+                    function (json) {
+                        $("#All_result").append("取消收藏店铺<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserFinishSale" value="销售单完成" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFinishSale").click(function () {
+                $.getJSON('/api/User/FinishSale/3',
+                    function (json) {
+                        $("#All_result").append("销售单完成<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="ReturnSaleOrder" value="销售单取消" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#ReturnSaleOrder").click(function () {
+                $.getJSON('/api/Sale/ReturnSaleOrder/3',
+                    function (json) {
+                        $("#All_result").append("销售单取消<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BestSalesWares" value="取得热销商品列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BestSalesWares").click(function () {
+                $.getJSON('/api/Store/BestSalesWares/1',
+                    function (json) {
+                        $("#All_result").append("取得热销商品列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BestSalesWaresCount" value="取得热销商品列表 - 数量" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BestSalesWaresCount").click(function () {
+                $.getJSON('/api/Store/BestSalesWares/1?Count=2',
+                    function (json) {
+                        $("#All_result").append("取得热销商品列表 - 数量<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BestSalesWaresCountType" value="取得热销商品列表 - 数量和类型" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BestSalesWaresCountType").click(function () {
+                $.getJSON('/api/Store/BestSalesWares/1?Count=2&WareTypeID=1',
+                    function (json) {
+                        $("#All_result").append("取得热销商品列表 - 数量和类型<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="BestSalesWare" value="取得分类里销量最高的商品" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#BestSalesWare").click(function () {
+                $.getJSON('/api/Ware/BestSales/2/1',
+                    function (json) {
+                        $("#All_result").append("取得分类里销量最高的商品<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="ShopCartDetails" value="购物车细节" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#ShopCartDetails").click(function () {
+                $.getJSON('/api/ShopCart/Details/18610240123',
+                    function (json) {
+                        $("#All_result").append("购物车细节<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="ShopCartAdd" value="增加购物车项" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#ShopCartAdd").click(function () {
+                $.getJSON('/api/ShopCart/Add/18610240123/1/1',
+                    function (json) {
+                        $("#All_result").append("增加购物车项<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="ShopCartRemove" value="删除购物车项" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#ShopCartRemove").click(function () {
+                $.getJSON('/api/ShopCart/Remove/18610240123/1/2',
+                    function (json) {
+                        $("#All_result").append("增加购物车项<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="ShopCartRemoveByM" value="按商家删除购物车项" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#ShopCartRemoveByM").click(function () {
+                $.getJSON('/api/ShopCart/RemoveByM/18610240123/1',
+                    function (json) {
+                        $("#All_result").append("按商家删除购物车项<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="QueryWXSOPreorder" value="前端获取微信销售预支付单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#QueryWXSOPreorder").click(function () {
+                $.getJSON('/api/Pay/QueryWXSOPreorder/4',
+                    function (json) {
+                        $("#All_result").append("前端获取微信销售预支付单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+
+<div>
+    <p><input type="button" id="UserFavourWare" value="收藏商品" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFavourWare").click(function () {
+                $.getJSON('/api/User/FavourWare/123/1',
+                    function (json) {
+                        $("#All_result").append("收藏商品<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserFavouriteWares" value="取得收藏商品" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFavouriteWares").click(function () {
+                $.getJSON('/api/User/favourWares/123',
+                    function (json) {
+                        $("#All_result").append("取得收藏商品<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UnfavourWare" value="取消收藏商品" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UnfavourWare").click(function () {
+                $.getJSON('/api/User/UnfavourWare/123/1',
+                    function (json) {
+                        $("#All_result").append("取消收藏商品<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="QueryPaymentForSale" value="前端获取销售单支付状态" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#QueryPaymentForSale").click(function () {
+                $.getJSON('/api/Pay/QueryPaymentForSale/1',
+                    function (json) {
+                        $("#All_result").append("前端获取销售单支付状态<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="SaleOrdersOfUser" value="查询用户的销售单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#SaleOrdersOfUser").click(function () {
+                $.getJSON('/api/Sale/OrdersOfUser/18610240123/0',
+                    function (json) {
+                        $("#All_result").append("查询用户的销售单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>

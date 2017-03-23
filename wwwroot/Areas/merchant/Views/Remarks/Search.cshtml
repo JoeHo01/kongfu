@@ -1,0 +1,23 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.Remark>
+
+@{
+    Layout = "~/Areas/merchant/Views/Shared/_layoutForFrame.cshtml"; 
+    ViewBag.Title = "评价搜索结果";
+}
+
+@Html.Partial("_SearchTable", Model)
+
+<h2>搜索结果</h2>
+
+@Html.Partial("_ListTable", Model)
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>
+
+<div>
+    @Html.ActionLink("返回目录", "Index")
+</div>

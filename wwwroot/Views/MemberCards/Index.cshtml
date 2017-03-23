@@ -1,0 +1,67 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using CommunityBackend.Models;
+@model PagedList<CommunityBackend.Models.MemberCard>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "会员管理";
+}
+
+<h2>会员卡目录</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MerchantID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Merchant.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.discount)
+        </td>
+        <td>
+            @item.category.GetDisplayName()
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.MemberCardID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.MemberCardID }) |
+            @Html.ActionLink("会员", "Subs", new { id = item.MemberCardID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.MemberCardID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

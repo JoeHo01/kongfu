@@ -1,0 +1,48 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.Advart>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml"; 
+    ViewBag.Title = "广告管理";
+}
+
+<h2>目录</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Merchant.nickname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Merchant.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.AdvartID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.AdvartID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.AdvartID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>
+

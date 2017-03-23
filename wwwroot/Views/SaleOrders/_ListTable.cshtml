@@ -1,0 +1,42 @@
+﻿@model PagedList<CommunityBackend.Models.SaleOrder>
+@using Webdiyer.WebControls.Mvc;
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Postor.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatueName)
+        </td>
+        <td>
+            @Html.ActionLink("查看", "Details", new { id = item.SaleOrderID }) |
+            @Html.ActionLink("明细", "Subs", new { SaleOrderID = item.SaleOrderID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,27 @@
+﻿@model CommunityBackend.Models.WareType
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>商品类别</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WareTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WareTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.WareTypeID }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

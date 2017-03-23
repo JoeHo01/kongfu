@@ -1,0 +1,158 @@
+﻿<div>
+    <p><input type="button" id="PlacePreorder" value="发送预定单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PlacePreorder").click(function () {
+                $.post('/api/Preorder/Place/123/789',
+                    {
+                        PreOrderer: "我",
+                        Phone: "1864005",
+                        PreorderRange: "3",
+                        Address: "sfsaf",
+                        Comment: "just a test only."
+                    },
+                    function (json) {
+                        $("#All_result").append("发送预定单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DetailOfPreorder" value="查看预定单详细" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DetailOfPreorder").click(function () {
+                $.getJSON('/api/Preorder/2', function (json) {
+                    $("#All_result").append("查看预定单详细<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="ServicesOfMerchant" value="取得商家的服务" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#ServicesOfMerchant").click(function () {
+                $.getJSON('/api/Service/ByMerchant/789',
+                    function (json) {
+                        $("#All_result").append("取得商家的服务<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserGetMerchant" value="取得附近的商家列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetMerchant").click(function () {
+                $.getJSON('/api/User/GetMerchant/1',
+                    { lon: "123.630737", lat: "41.589485", SortBy: "Distance", SortPara: "1" },
+                    function (json) {
+                        $("#All_result").append("取得附近的商家列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserGetMerchantremarkUp" value="取得附近的商家列表－评论上" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetMerchantremarkUp").click(function () {
+                $.getJSON('/api/User/GetMerchant/1',
+                    { lon: "123.520837", lat: "41.699585", SortBy: "Remark", SortPara: "UP" },
+                    function (json) {
+                        $("#All_result").append("取得附近的商家列表－评论上<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserGetMerchantremarkDown" value="取得附近的商家列表－评论下" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetMerchantremarkDown").click(function () {
+                $.getJSON('/api/User/GetMerchant/1',
+                    { lon: "123.520837", lat: "41.699585", SortBy: "Remark", SortPara: "Down" },
+                    function (json) {
+                        $("#All_result").append("取得附近的商家列表－评论下<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CancelForPreorder" value="用户取消预约单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CancelForPreorder").click(function () {
+                $.getJSON('/api/Preorder/CancelByUser/123/5',
+                    function (json) {
+                        $("#All_result").append("用户取消预约单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="PreordersOfUser" value="取得用户的预约单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PreordersOfUser").click(function () {
+                $.getJSON('/api/Preorder/ByUser/123/2/1',
+                    function (json) {
+                        $("#All_result").append("取得用户的预约单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="PreordersOfMerchant" value="取得指定商家的预约单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PreordersOfMerchant").click(function () {
+                $.getJSON('/api/Preorder/ByMerchant/789/2/1',
+                    function (json) {
+                        $("#All_result").append("取得指定商家的预约单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserFinishPreorder" value="预约单完成" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFinishPreorder").click(function () {
+                $.getJSON('/api/User/FinishPreorder/6',
+                    function (json) {
+                        $("#All_result").append("预约单完成<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>

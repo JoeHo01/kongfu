@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CommunityBackend.Models.RollingMsg>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "轮播信息管理";
+}
+
+<h2>轮播信息目录</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Caption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Caption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateTime)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.RollingMsgID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.RollingMsgID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,125 @@
+﻿@using CommunityBackend.Models;
+@model CommunityBackend.Models.Craftman
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nickname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Model.gender.DisplayGenderStr()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkType)
+        </dt>
+
+        <dd>
+            @ViewBag.WorkTypeName
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadImgExtName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadImgExtName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TradeAreas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TradeAreas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brief)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoneyBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoneyBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateCnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateCnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderCnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderCnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Recphonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recphonenumber)
+        </dd>
+
+    </dl>

@@ -1,0 +1,18 @@
+﻿@model CommunityBackend.Models.Community
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>城市</h4>
+    <hr />
+    @Html.Partial("_DetailList", Model)
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.CommunityID }) |
+    @Html.ActionLink("社区目录", "Index")
+</p>

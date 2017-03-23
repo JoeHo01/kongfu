@@ -1,0 +1,21 @@
+﻿@using CommunityBackend.Models;
+
+@{
+    bool IsRply = ViewBag.IsRply;
+}
+
+@using (Html.BeginForm("Search", "Remarks", new RouteValueDictionary { { "id", "" }, { "area", "merchant" } }, FormMethod.Get))
+{
+    <div class="well well-sm">
+
+        <div class="radio">
+            <span>按回复状态搜索</span>
+            <br /> @Html.RadioButton("IsReply", "True", IsRply) 已回复 
+            <br /> @Html.RadioButton("IsReply", "False", !IsRply) 未回复
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="搜索(S)" accesskey="S" class="btn btn-default" />
+        </div>
+    </div>
+}

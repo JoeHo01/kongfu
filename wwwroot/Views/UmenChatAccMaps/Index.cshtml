@@ -1,0 +1,49 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.UmenChatAccMap>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "聊天账号管理";
+}
+
+<h2>聊天账号目录</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatPassword)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatPassword)
+        </td>
+        <td>
+            @Html.ActionLink("查看", "Details", new { id=item.UmenChatAccMapID }) |
+            @Html.ActionLink("解除", "Delete", new { id=item.UmenChatAccMapID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

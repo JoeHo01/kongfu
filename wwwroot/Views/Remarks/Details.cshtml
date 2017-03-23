@@ -1,0 +1,99 @@
+﻿@using CommunityBackend.Models;
+@model CommunityBackend.Models.Remark
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>评价</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Model.Type.GetDisplayName()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BillID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BillID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WareID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WareID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoreID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServPhonenum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServPhonenum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPhonenum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPhonenum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("返回目录", "Index")
+</p>

@@ -1,0 +1,189 @@
+﻿<div>
+    <p><input type="button" id="MerchantRegister" value="商家注册" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantRegister").click(function () {
+                $.getJSON('/api/Merchant/Reg/790/790/790/1', function (json) {
+                    $("#All_result").append("商家注册<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantLogin" value="商家登录" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantLogin").click(function () {
+                $.getJSON('/api/Merchant/Login/789/789/0', function (json) {
+                    $("#All_result").append("商家登录<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantInfo" value="获取商家资料" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantInfo").click(function () {
+                $.getJSON('/api/Merchant/18519056789', function (json) {
+                    $("#All_result").append("获取商家资料<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantChangePwd" value="商家密码修改" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantChangePwd").click(function () {
+                $.getJSON('/api/Merchant/ChangePwd/789/789/987', function (json) {
+                    $("#All_result").append("商家密码修改<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantEnablePreorder" value="服务商开启预约" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantEnablePreorder").click(function () {
+                $.getJSON('/api/Merchant/EnablePreorder/18519056789', function (json) {
+                    $("#All_result").append("服务商开启预约<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantDisablePreorder" value="服务商结束预约" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantDisablePreorder").click(function () {
+                $.getJSON('/api/Merchant/DisablePreorder/789', function (json) {
+                    $("#All_result").append("服务商结束预约<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantGetPreorder" value="服务商接收预定单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantGetPreorder").click(function () {
+                $.getJSON('/api/Merchant/GetPreorder/789', function (json) {
+                    $("#All_result").append("服务商接收预定单<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantGetPreorderByPage" value="服务商按页接收预定单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantGetPreorderByPage").click(function () {
+                $.getJSON('/api/Merchant/GetPreorderByPage/789/2/1', function (json) {
+                    $("#All_result").append("服务商按页接收预定单<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantAcceptPreorder" value="服务商接受预定" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantAcceptPreorder").click(function () {
+                $.getJSON('/api/Merchant/AcceptPreorder/789/1', function (json) {
+                    $("#All_result").append("服务商接受预定<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantSearching" value="搜索附近的商家" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantSearching").click(function () {
+                $.getJSON('/api/Merchant/Search/7/1',
+                    { lon: "123.520837", lat: "41.699585", SortBy: "Distance", SortPara: "100" },
+                    function (json) {
+                        $("#All_result").append("搜索附近的商家<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantSearchingOrderUp" value="取得附近的商家列表－单数上" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantSearchingOrderUp").click(function () {
+                $.getJSON('/api/Merchant/Search/7/1',
+                    { lon: "123.520837", lat: "41.699585", SortBy: "Order", SortPara: "UP" },
+                    function (json) {
+                        $("#All_result").append("取得附近的商家列表－评论上<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MerchantSearchingOrderDown" value="取得附近的商家列表－单数下" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MerchantSearchingOrderDown").click(function () {
+                $.getJSON('/api/Merchant/Search/7/1',
+                    { lon: "123.520837", lat: "41.699585", SortBy: "Order", SortPara: "Down" },
+                    function (json) {
+                        $("#All_result").append("取得附近的商家列表－评论下<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RecommendedStores" value="取得推荐店铺列表接口" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RecommendedStores").click(function () {
+                $.getJSON('/api/Store/Recommended/2',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("取得推荐店铺列表接口<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>

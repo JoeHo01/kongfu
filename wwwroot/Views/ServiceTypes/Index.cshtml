@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CommunityBackend.Models.ServiceType>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "服务类别管理";
+}
+
+<h2>服务类别</h2>
+
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceTypeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceTypeName)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.ServiceTypeID }) |
+            @Html.ActionLink("查看", "Details", new { id = item.ServiceTypeID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.ServiceTypeID })
+        </td>
+    </tr>
+}
+
+</table>

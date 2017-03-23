@@ -1,0 +1,18 @@
+﻿@using (Html.BeginForm("Search", "CraftBBSPosts", new RouteValueDictionary { { "id", "" } }, FormMethod.Get))
+{
+    <div class="well well-sm">
+        <div class="form-group">
+            <span>搜索关键字：</span>
+            <input type="text" name="kword" value="@Request.QueryString["kword"]" />
+        </div>
+
+        <div class="form-group">
+            <span>搜索版块：</span>
+            @Html.DropDownList("CraftBBSForumID", "全部")
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="搜索(S)" accesskey="S" class="btn btn-default" />
+        </div>
+    </div>
+}

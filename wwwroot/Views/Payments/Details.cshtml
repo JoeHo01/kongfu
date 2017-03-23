@@ -1,0 +1,107 @@
+﻿@model CommunityBackend.Models.Payment
+@using CommunityBackend.Models;
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "查看";  
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>支付</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PayTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Craftman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Craftman.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Merchant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Merchant.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brief)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Model.type.GetDisplayName()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.method)
+        </dt>
+
+        <dd>
+            @Model.method.GetDisplayName()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finished)
+        </dt>
+
+        <dd>
+            @Model.Finished.DisplayYesOrNoStr();
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayTranid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayTranid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleOrderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleOrderID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("返回目录", "Index")
+</p>

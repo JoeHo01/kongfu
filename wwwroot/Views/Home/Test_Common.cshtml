@@ -1,0 +1,279 @@
+﻿
+<div>
+    <p><input type="button" id="IdentifyCodeGet" value="前端获取验证码" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#IdentifyCodeGet").click(function () {
+                $.getJSON('/api/Identify/18640054846', function (json) {
+                    $("#All_result").append("前端获取验证码<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="IdentifyCodeGetWithCheckUser" value="前端获取验证码, 验证是否已注册" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#IdentifyCodeGetWithCheckUser").click(function () {
+                $.getJSON('/api/Identify/123?CheckForUser=True',
+                    function (json) {
+                    $("#All_result").append("前端获取验证码, 验证是否已注册<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="Feedback" value="反馈意见" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#Feedback").click(function () {
+                $.post('/api/Feedback/123/0',
+                    {
+                        Content: "sssssss"
+                    },
+                    function (json) {
+                        $("#All_result").append("反馈意见<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="IdentifyCodeCheck" value="手机用户验证" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#IdentifyCodeCheck").click(function () {
+                $.getJSON('/api/Identify/18640054846/666666', function (json) {
+                    $("#All_result").append("手机用户验证<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StaticDataVersion" value="获得静态数据版本" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StaticDataVersion").click(function () {
+                $.getJSON('/api/StaticData/Version', function (json) {
+                    $("#All_result").append("获得静态数据版本<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="WorkTypeList" value="取得工种列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#WorkTypeList").click(function () {
+                $.getJSON('/api/StaticData/WorkType', function (json) {
+                    $("#All_result").append("取得工种列表<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p>
+        发送头像
+        <form name="HeadImage" method="post" enctype="multipart/form-data" action="/api/HeadImage/123/1">
+            <div>
+                <label for="HeadImageFile">头像文件</label>
+                <input name="HeadImageFile" type="file" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p><input type="button" id="ServiceTypeList" value="取得服务类型列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#ServiceTypeList").click(function () {
+                $.getJSON('/api/StaticData/ServiceType', function (json) {
+                    $("#All_result").append("取得服务类型列表<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="TradeAreaList" value="取得取得商圈列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#TradeAreaList").click(function () {
+                $.getJSON('/api/StaticData/TradeArea/1', function (json) {
+                    $("#All_result").append("取得取得商圈列表<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CityList" value="取得城市列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CityList").click(function () {
+                $.getJSON('/api/StaticData/City', function (json) {
+                    $("#All_result").append("取得城市列表<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CommunityList" value="取得社区列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CommunityList").click(function () {
+                $.getJSON('/api/StaticData/Community/1', function (json) {
+                    $("#All_result").append("取得社区列表<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StaticWareTypeList" value="取得商品类型列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StaticWareTypeList").click(function () {
+                $.getJSON('/api/StaticData/WareType', function (json) {
+                    $("#All_result").append("取得商品类型列表<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StatiForumList" value="取得社区版块列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StatiForumList").click(function () {
+                $.getJSON('/api/StaticData/Forum',
+                    function (json) {
+                        $("#All_result").append("取得社区版块列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StatiCraftForumList" value="取得手艺人社区版块列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StatiCraftForumList").click(function () {
+                $.getJSON('/api/StaticData/CraftForum',
+                    function (json) {
+                        $("#All_result").append("取得手艺人社区版块列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StaticDataInfoType" value="信息类型列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StaticDataInfoType").click(function () {
+                $.getJSON('/api/StaticData/InfoType',
+                    function (json) {
+                        $("#All_result").append("信息类型列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="StaticDataPreType" value="预约信息类型列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#StaticDataPreType").click(function () {
+                $.getJSON('/api/StaticData/PreInfoType',
+                    function (json) {
+                        $("#All_result").append("预约信息类型列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="GetAgreement" value="取得用户协议" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#GetAgreement").click(function () {
+                $.getJSON('/api/Agreement/User',
+                    function (json) {
+                        $("#All_result").append("取得用户协议<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="AdvartGetTops" value="取得轮播广告" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#AdvartGetTops").click(function () {
+                $.getJSON('/api/Advart/Top/3',
+                    function (json) {
+                        $("#All_result").append("取得轮播广告<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RollingMsg" value="取得轮播文字" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RollingMsg").click(function () {
+                $.getJSON('/api/RollingMsg/3',
+                    function (json) {
+                        $("#All_result").append("取得轮播文字<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>

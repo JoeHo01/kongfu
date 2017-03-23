@@ -1,0 +1,64 @@
+﻿@using CommunityBackend.Models;
+@using Webdiyer.WebControls.Mvc;
+@model PagedList<CommunityBackend.Models.Remark>
+
+@{
+    Layout = "~/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "评价管理";
+}
+
+<h2>评价目录</h2>
+
+<p></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServPhonenum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserPhonenum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Type.GetDisplayName()
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServPhonenum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserPhonenum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rate)
+        </td>
+        <td>
+            @Html.ActionLink("查看", "Details", new { id = item.RemarkID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.RemarkID }) |
+            @Html.ActionLink("回复", "index", "RemarkReplies", new { RemarkID = item.RemarkID }, null)
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="text-right">
+    @Html.Pager(Model).Options(
+        o => o.SetPageIndexParameterName("id").SetHorizontalAlign("right").SetPagerItemTemplate("&nbsp;{0}")
+    )
+</div>

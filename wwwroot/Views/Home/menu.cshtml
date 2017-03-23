@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>运营后台菜单栏</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-list">
+            <li>
+                <h4>账号管理</h4>
+                @Html.ActionLink("用户管理", "Index", "Users", null, new { target = "frameRight" })
+                @Html.ActionLink("商家管理", "Index", "Merchants", null, new { target = "frameRight" })
+                @Html.ActionLink("手艺人管理", "Index", "Craftmen", null, new { target = "frameRight" })
+                @Html.ActionLink("聊天账号", "Index", "UmenChatAccMaps", null, new { target = "frameRight" })
+            </li>
+
+            <li>
+                <h4>订单管理</h4>
+                @Html.ActionLink("销售单查询", "Index", "SaleOrders", null, new { target = "frameRight" })
+                @Html.ActionLink("维修单查询", "Index", "RepairOrders", null, new { target = "frameRight" })
+                @Html.ActionLink("提现管理", "Index", "WithdrawRequests", null, new { target = "frameRight" })
+            </li>
+
+            <li>
+                <h4>系统管理</h4>
+                @Html.ActionLink("协议管理", "Index", "Agreements", null, new { target = "frameRight" })
+                @Html.ActionLink("租赁信息", "Index", "InfoNews", null, new { target = "frameRight" })
+                @Html.ActionLink("反馈管理", "Index", "Feedbacks", null, new { target = "frameRight" })
+                @Html.ActionLink("支付查询", "Index", "Payments", null, new { target = "frameRight" })
+                @Html.ActionLink("评价管理", "Index", "Remarks", null, new { target = "frameRight" })
+                @Html.ActionLink("贴子管理", "Index", "BBSPosts", null, new { target = "frameRight" })
+                @Html.ActionLink("推送信息", "Index", "SystemMsgs", null, new { target = "frameRight" })
+                @Html.ActionLink("积分规则", "Index", "PointRules", null, new { target = "frameRight" })
+            </li>
+            <li>
+                <h4>静态数据</h4>
+                @Html.ActionLink("省区管理", "Index", "Cities", null, new { target = "frameRight" })
+                @Html.ActionLink("城市管理", "Index", "Communities", null, new { target = "frameRight" })
+                @Html.ActionLink("商圈管理", "Index", "TradeAreas", null, new { target = "frameRight" })
+                @Html.ActionLink("商品类别", "Index", "WareTypes", null, new { target = "frameRight" })
+                @Html.ActionLink("租赁类别", "Index", "InfoTypes", null, new { target = "frameRight" })
+                @Html.ActionLink("论坛版块", "Index", "BBSForums", null, new { target = "frameRight" })
+            </li>
+        </ul>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    </div></body>
+</html>

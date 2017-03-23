@@ -1,0 +1,53 @@
+﻿@using CommunityBackend.Tool;
+@model CommunityBackend.Models.EstateServ
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brief)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Community)
+        </dt>
+
+        <dd>
+            @ViewBag.CommunityName
+        </dd>
+
+        <dt>
+            物业图片
+        </dt>
+
+        <dd>
+            @EstateServImageTool.GetImage(Model)
+        </dd>
+
+    </dl>

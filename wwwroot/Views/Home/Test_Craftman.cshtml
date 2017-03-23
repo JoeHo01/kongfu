@@ -1,0 +1,474 @@
+﻿
+<div>
+    <p><input type="button" id="CraftmanRegister" value="手艺人注册" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanRegister").click(function () {
+                $.post('/api/Craftman/Reg',
+                    {
+                        phonenum: "18640054846",
+                        idencode: "666666"
+                    },
+                    function (json) {
+                        $("#All_result").append("手艺人注册<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanInfo" value="手艺人资料查看" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanInfo").click(function () {
+                $.getJSON('/api/Craftman/18201289456', function (json) {
+                    $("#All_result").append("手艺人资料查看<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="CraftmanModify-personid" value="手艺人资料修改 - 身份证" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanModify-personid").click(function () {
+                $.getJSON('/api/Craftman/Update/400/personid/2000000000000', function (json) {
+                    $("#All_result").append("手艺人资料修改 - 身份证<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="CraftmanModify-brief" value="手艺人资料修改 - 简介" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanModify-brief").click(function () {
+                $.getJSON('/api/Craftman/Update/400/brief/这只是一个,简介修改示例。', function (json) {
+                    $("#All_result").append("手艺人资料修改 - 简介<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanChangePwd" value="手艺人密码修改" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanChangePwd").click(function () {
+                $.getJSON('/api/Craftman/ChangePwd/456/456/654', function (json) {
+                    $("#All_result").append("手艺人密码修改<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanLogin" value="手艺人登录" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanLogin").click(function () {
+                $.getJSON('/api/Craftman/Login/18640054846/666666/0', function (json) {
+                    $("#All_result").append("手艺人登录<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanPayByWeixin" value="手艺人支付接口 - 待调试" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanPayByWeixin").click(function () {
+                $.getJSON('/api/Craftman/Pay/ByWeixin/456/100', function (json) {
+                    $("#All_result").append("手艺人支付接口<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanStartWork" value="手艺人开工" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanStartWork").click(function () {
+                $.getJSON('/api/Craftman/StartWork/18201289456',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("手艺人开工<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanStopWork" value="手艺人收工" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanStopWork").click(function () {
+                $.getJSON('/api/Craftman/StopWork/456', function (json) {
+                    $("#All_result").append("手艺人收工<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="CraftmanCollectOrderByPage" value="手艺人按页接收订单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanCollectOrderByPage").click(function () {
+                $.getJSON('/api/Craftman/CollectOrderByPage/18201289456/5/1',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("手艺人按页接收订单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="CraftmanCollectOrder" value="手艺人接收订单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanCollectOrder").click(function () {
+                $.getJSON('/api/Craftman/CollectOrder/18201289456',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("手艺人接收订单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="CraftmanApplyOrder" value="手艺人抢单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanApplyOrder").click(function () {
+                $.getJSON('/api/Craftman/Apply/456/1',
+                    function (json) {
+                        $("#All_result").append("手艺人抢单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="CraftmanQueryResult" value="查询抢单结果" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanQueryResult").click(function () {
+                $.getJSON('/api/Craftman/QueryResult/456/1',
+                    function (json) {
+                        $("#All_result").append("查询抢单结果<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="RepairOrdersOfCraftman" value="手艺人订单查询" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RepairOrdersOfCraftman").click(function () {
+                $.getJSON('/api/RepairOrder/Craftman/456',
+                    function (json) {
+                        $("#All_result").append("手艺人订单查询<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSPost" value="发表手艺人论坛主贴" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSPost").click(function () {
+                $.post('/api/CraftBBS/Post/18201289456',
+                    {
+                        Title: "手艺人主贴测试一",
+                        Content: "手艺人主贴测试一, 这是内容。",
+                        ForumID: 1
+                    },
+                    function (json) {
+                        $("#All_result").append("发表手艺人论坛主贴<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+
+<div>
+    <p><input type="button" id="CraftBBSPostWithAnonymous" value="发表手艺人论坛主贴 - 匿名" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSPostWithAnonymous").click(function () {
+                $.post('/api/CraftBBS/Post/18201289456',
+                    {
+                        Title: "匿名手艺人主贴测试",
+                        Content: "匿手艺人名主贴测试, 这是内容。",
+                        ForumID: 1,
+                        IsAnonymous: true
+                    },
+                    function (json) {
+                        $("#All_result").append("发表手艺人论坛主贴 - 匿名<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p>
+        发表手艺人论坛主贴 - 图片版
+        <form name="CraftBBSPostWithOneImage" method="post" enctype="multipart/form-data" action="/api/CraftBBS/Post/18201289456">
+            <div>
+                <label for="Title">标题</label>
+                <input name="Title" type="text" value="手艺人论坛主贴测试一图片" />
+            </div>
+            <div>
+                <label for="Content">内容</label>
+                <input name="Content" type="text" value="手艺人论坛主贴测试一图片, 这是内容。" />
+            </div>
+            <div>
+                <label for="ForumID">版块</label>
+                <input name="ForumID" type="text" value="1" />
+            </div>
+            <div>
+                <label for="Image1">文件一</label>
+                <input name="Image1" type="file" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p>
+        发表手艺人论坛主贴 - 图片版
+        <form name="CraftBBSPostWithImage" method="post" enctype="multipart/form-data" action="/api/CraftBBS/Post/18201289456">
+            <div>
+                <label for="Title">标题</label>
+                <input name="Title" type="text" value="手艺人主贴测试一" />
+            </div>
+            <div>
+                <label for="Content">内容</label>
+                <input name="Content" type="text" value="手艺人主贴测试一, 这是内容。" />
+            </div>
+            <div>
+                <label for="ForumID">版块</label>
+                <input name="ForumID" type="text" value="1" />
+            </div>
+            <div>
+                <label for="Image1">文件一</label>
+                <input name="Image1" type="file" />
+            </div>
+            <div>
+                <label for="Image2">文件二</label>
+                <input name="Image2" type="file" />
+            </div>
+            <div>
+                <label for="Image3">文件三</label>
+                <input name="Image3" type="file" />
+            </div>
+            <div>
+                <label for="Image4">文件四</label>
+                <input name="Image4" type="file" />
+            </div>
+            <div>
+                <label for="Image5">文件五</label>
+                <input name="Image5" type="file" />
+            </div>
+            <div>
+                <label for="Image6">文件六</label>
+                <input name="Image6" type="file" />
+            </div>
+            <div>
+                <label for="Image7">文件七</label>
+                <input name="Image7" type="file" />
+            </div>
+            <div>
+                <label for="Image8">文件八</label>
+                <input name="Image8" type="file" />
+            </div>
+            <div>
+                <label for="Image9">文件九</label>
+                <input name="Image9" type="file" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSReply" value="回复手艺人论坛贴子" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSReply").click(function () {
+                $.post('/api/CraftBBS/Reply/18201289456/1',
+                    {
+                        Title: "手艺人回贴测试一",
+                        Content: "手艺人回贴测试一, 这是内容。"
+                    },
+                    function (json) {
+                        $("#All_result").append("回复手艺人论坛贴子<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSReplyEmptyTitle" value="回复手艺人论坛贴子 - 空标题" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSReplyEmptyTitle").click(function () {
+                $.post('/api/CraftBBS/Reply/18201289456/1',
+                    {
+                        Title: "",
+                        Content: "手艺人回贴测试二，空标题, 这是内容。"
+                    },
+                    function (json) {
+                        $("#All_result").append("回复手艺人论坛贴子 - 空标题<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSAgree" value="手艺人论坛顶贴" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSAgree").click(function () {
+                $.getJSON('/api/CraftBBS/Agree/18201289456/1',
+                    function (json) {
+                        $("#All_result").append("手艺人论坛顶贴<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSForum" value="获取手艺人主贴列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSForum").click(function () {
+                $.getJSON('/api/CraftBBS/Forum/1/10/1',
+                    function (json) {
+                        $("#All_result").append("获取手艺人主贴列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSRecommended" value="取得手艺人论坛推荐贴子" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSRecommended").click(function () {
+                $.getJSON('/api/CraftBBS/Recommended/2',
+                    function (json) {
+                        $("#All_result").append("取得手艺人论坛推荐贴子<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSReplys" value="获取手艺人论坛回复列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSReplys").click(function () {
+                $.getJSON('/api/CraftBBS/Replys/1/5/1',
+                    function (json) {
+                        $("#All_result").append("获取手艺人论坛回复列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSPostDetail" value="取得手艺人论坛贴子详情" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSPostDetail").click(function () {
+                $.getJSON('/api/CraftBBS/Detail/1',
+                    function (json) {
+                        $("#All_result").append("取得手艺人论坛贴子详情<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftBBSSearch" value="手艺人论坛贴子搜索" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftBBSSearch").click(function () {
+                $.getJSON('/api/CraftBBS/Search/搜索关键字/2/1',
+                    function (json) {
+                        $("#All_result").append("手艺人论坛贴子搜索<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanAcceptOrder" value="手艺人接收一对一维修订单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanAcceptOrder").click(function () {
+                $.getJSON('/api/Craftman/AcceptOrder/18201289500/2/true',
+                    function (json) {
+                        $("#All_result").append("手艺人接收一对一维修订单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>

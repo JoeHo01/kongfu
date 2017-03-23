@@ -1,0 +1,35 @@
+﻿@model CommunityBackend.Models.SaleOrderDetail
+
+@{
+    Layout = "~/Areas/merchant/Views/Shared/_layoutForFrame.cshtml"; 
+    ViewBag.Title = "销售明细";
+}
+
+<h2>查看</h2>
+
+<div>
+    <h4>明细</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WareID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ware.WareName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WareCnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WareCnt)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("返回目录", "Index")
+</p>

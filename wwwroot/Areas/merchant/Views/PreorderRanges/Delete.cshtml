@@ -1,0 +1,49 @@
+﻿@model CommunityBackend.Models.PreorderRange
+
+@{
+    Layout = "~/Areas/merchant/Views/Shared/_layoutForFrame.cshtml";
+    ViewBag.Title = "删除"; 
+}
+
+<h2>删除</h2>
+
+<h3>你确定要删除吗?</h3>
+<div>
+    <h4>预约时段</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ForMerchant.phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForMerchant.phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RangeStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RangeStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RangeEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RangeEnd)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回列表", "Index")
+        </div>
+    }
+</div>

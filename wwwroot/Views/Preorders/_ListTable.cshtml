@@ -1,0 +1,47 @@
+﻿@model PagedList<CommunityBackend.Models.Preorder>
+@using Webdiyer.WebControls.Mvc;
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreorderTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mer.nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreorderTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatueName)
+        </td>
+        <td>
+            @Html.ActionLink("查看", "Details", new { id=item.PreorderID })
+        </td>
+    </tr>
+}
+
+</table>

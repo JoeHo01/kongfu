@@ -1,0 +1,238 @@
+﻿<div>
+    <p><input type="button" id="RepairOrderToCancel" value="取消订单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RepairOrderToCancel").click(function () {
+                $.getJSON('/api/RepairOrder/Cancel/123/3',
+                    function (json) {
+                        $("#All_result").append("取消订单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="GetApplicantsOfRepairOrder" value="取得订单申请者" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#GetApplicantsOfRepairOrder").click(function () {
+                $.getJSON('/api/RepairOrder/Applicants/1',
+                    function (json) {
+                        $("#All_result").append("取得订单申请者<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="DetailOfRepairOrder" value="查看订单详细" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DetailOfRepairOrder").click(function () {
+                $.getJSON('/api/RepairOrder/3',
+                    function (json) {
+                        $("#All_result").append("查看订单详细<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="PlaceRepairOrder" value="发送维修订单 - 文字版" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PlaceRepairOrder").click(function () {
+                $.post('/api/RepairOrder/Place/123',
+                    {
+                        Address: "sssssss",
+                        Detail: "sssssss",
+                        longitude: "123.520837",
+                        latitude: "41.699585",
+                        WorkType: "1"
+                    },
+                    function (json) {
+                        $("#All_result").append("发送维修订单 - 文字版<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="PlaceRepairOrderForOne" value="发送维修订单 - 一对一" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PlaceRepairOrderForOne").click(function () {
+                $.post('/api/RepairOrder/PlaceForOne/18610240123/18201289456',
+                    {
+                        Address: "sssssss",
+                        Detail: "sssssss",
+                        longitude: "123.520837",
+                        latitude: "41.699585",
+                        WorkType: "1"
+                    },
+                    function (json) {
+                        $("#All_result").append("发送维修订单 - 一对一<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="QuickRepairOrder" value="发送快捷维修单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#QuickRepairOrder").click(function () {
+                $.post('/api/RepairOrder/QuickPlace/18610240123',
+                    {
+                        Address: "sssssss",
+                        Detail: "sssssss",
+                        longitude: "123.520837",
+                        latitude: "41.699585"
+                    },
+                    function (json) {
+                        $("#All_result").append("发送快捷维修单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="QuickPlaceRepairOrderForOne" value="发送快捷一对一维修单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#QuickPlaceRepairOrderForOne").click(function () {
+                $.post('/api/RepairOrder/QuickPlaceForOne/18610240123/18201289456',
+                    {
+                        Address: "QuickPlaceForOne",
+                        Detail: "QuickPlaceForOne",
+                        longitude: "123.520837",
+                        latitude: "41.699585"
+                    },
+                    function (json) {
+                        $("#All_result").append("发送快捷一对一维修单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p>
+        发送维修订单 - 音频版
+        <form name="PlaceRepairOrderWithAudio" method="post" enctype="multipart/form-data" action="/api/RepairOrder/Place/123">
+            <div>
+                <label for="Detail">报修细节</label>
+                <input name="Detail" type="text" value="sssssss" />
+            </div>
+            <div>
+                <label for="Address">报修地址</label>
+                <input name="Address" type="text" value="sssssss" />
+            </div>
+            <div>
+                <label for="longitude">经度</label>
+                <input name="longitude" type="text" value="123.520837" />
+            </div>
+            <div>
+                <label for="latitude">纬度</label>
+                <input name="latitude" type="text" value="41.699585" />
+            </div>
+            <div>
+                <label for="WorkType">工种</label>
+                <input name="WorkType" type="text" value="1" />
+            </div>
+            <div>
+                <label for="AudioDetail">报修音频</label>
+                <input name="AudioDetail" type="file" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p><input type="button" id="UserDealRepair" value="签定维修单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserDealRepair").click(function () {
+                $.getJSON('/api/User/RepairDeal/1/456',
+                    function (json) {
+                        $("#All_result").append("签定维修单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserGetCraftmem" value="按距离取得手艺人列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetCraftmem").click(function () {
+                $.getJSON('/api/User/GetCraftmem/1',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("按距离取得手艺人列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserGetRepairOrders" value="用户的维修单列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetRepairOrders").click(function () {
+                $.getJSON('/api/User/RepairOrders/18610240123/0',
+                    function (json) {
+                        $("#All_result").append("用户的维修单列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserGetRepairOrdersForAll" value="用户的维修单列表 - 全部" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserGetRepairOrdersForAll").click(function () {
+                $.getJSON('/api/User/RepairOrders/18610240123',
+                    function (json) {
+                        $("#All_result").append("用户的维修单列表 - 全部<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserFinishRepair" value="维修单完成" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFinishRepair").click(function () {
+                $.getJSON('/api/User/FinishRepair/5',
+                    function (json) {
+                        $("#All_result").append("维修单完成<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,393 @@
+﻿<div>
+    <p><input type="button" id="CraftmanModify-brief" value="手艺人资料修改 - 简介" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanModify-brief").click(function () {
+                $.post('/api/Craftman/UpdateBrief/18201289500/brief',
+                    {
+                        Value: "验证码"
+                    }, function (json) {
+                    $("#All_result").append("手艺人资料修改 - 简介<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="UserFinishRepair" value="维修单完成" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#UserFinishRepair").click(function () {
+                $.getJSON('/api/User/FinishRepair/5',
+                    function (json) {
+                        $("#All_result").append("维修单完成<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="InfoNewsList" value="信息列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#InfoNewsList").click(function () {
+                $.getJSON('/api/InfoNews/1/1/10/1',
+                    function (json) {
+                        $("#All_result").append("信息列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p>
+        发送用户头像
+        <form name="HeadImage" method="post" enctype="multipart/form-data" action="/api/HeadImage/18610240123/0">
+            <div>
+                <label for="HeadImageFile">用户头像文件</label>
+                <input name="HeadImageFile" type="file" />
+            </div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </p>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanFinishRepairOrder" value="手艺人确认完成工作" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanFinishRepairOrder").click(function () {
+                $.getJSON('/api/Craftman/FinishOrder/3',
+                    function (json) {
+                        $("#All_result").append("手艺人确认完成工作<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="DetailOfRepairOrder" value="查看订单详细" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#DetailOfRepairOrder").click(function () {
+                $.getJSON('/api/RepairOrder/3',
+                    function (json) {
+                        $("#All_result").append("查看订单详细<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="QueryUserRechargePreorder" value="前端获取用户充值预支付单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#QueryUserRechargePreorder").click(function () {
+                $.getJSON('/api/Pay/UserRechargePreorder/18610240123/1',
+                    function (json) {
+                        $("#All_result").append("前端获取用户充值预支付单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="QueryCraftmanRechargePreorder" value="前端获取工程师充值预支付单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#QueryCraftmanRechargePreorder").click(function () {
+                $.getJSON('/api/Pay/CraftmanRechargePreorder/18201289456/2',
+                    function (json) {
+                        $("#All_result").append("前端获取工程师充值预支付单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="QueryRepairOrderMarginPreorder" value="前端获取维修单保证金预支付单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#QueryRepairOrderMarginPreorder").click(function () {
+                $.getJSON('/api/Pay/RepairOrderMarginPreorder/3/3',
+                    function (json) {
+                        $("#All_result").append("前端获取维修单保证金预支付单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MakeRepairMarginPayment" value="创建维修单保证金支付单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MakeRepairMarginPayment").click(function () {
+                $.getJSON('/api/Pay/MakeRepairMarginPayment/1/0.1/',
+                    function (json) {
+                        $("#All_result").append("创建维修单保证金支付单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MakeCraftmanChargePayment" value="创建工程师充值支付单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MakeCraftmanChargePayment").click(function () {
+                $.getJSON('/api/Pay/MakeCraftmanChargePayment/18201289456/0.1/',
+                    function (json) {
+                        $("#All_result").append("创建工程师支付单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="MakeUserChargePayment" value="创建用户充值支付单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#MakeUserChargePayment").click(function () {
+                $.getJSON('/api/Pay/MakeUserChargePayment/18519056349/0.1/',
+                    function (json) {
+                        $("#All_result").append("创建工程师支付单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanStartWork" value="手艺人开工" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanStartWork").click(function () {
+                $.getJSON('/api/Craftman/StartWork/18201289456',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("手艺人开工<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanApplyOrder" value="手艺人抢单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanApplyOrder").click(function () {
+                $.getJSON('/api/Craftman/Apply/18201289456/1',
+                    function (json) {
+                        $("#All_result").append("手艺人抢单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="GetApplicantsOfRepairOrder" value="维修单申请者" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#GetApplicantsOfRepairOrder").click(function () {
+                $.getJSON('/api/RepairOrder/Applicants/1',
+                    function (json) {
+                        $("#All_result").append("维修单申请者<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanStopWork" value="手艺人收工" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanStopWork").click(function () {
+                $.getJSON('/api/Craftman/StopWork/18201289456', function (json) {
+                    $("#All_result").append("手艺人收工<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+<div>
+    <p><input type="button" id="CraftmanCollectOrderByPage" value="手艺人按页接收订单" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanCollectOrderByPage").click(function () {
+                $.getJSON('/api/Craftman/CollectOrderByPage/18201289456/5/1',
+                    { lon: "123.520837", lat: "41.699585" },
+                    function (json) {
+                        $("#All_result").append("手艺人按页接收订单<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="PostWithdrawRequestForUser" value="发送用户提现请求" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PostWithdrawRequestForUser").click(function () {
+                $.post('/api/pay/WithdrawRequestForUser',
+                    {
+                        UserPhone: "18519051234",
+                        Sum: "0.1",
+                        BankAccName: 1,
+                        BankAccount: 1,
+                        OpenBank: 1,
+                        Alipay: 1,
+                        Wiexin: 1
+                    },
+                    function (json) {
+                        $("#All_result").append("发送用户提现请求<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="PostWithdrawRequestForCraftman" value="发送手艺人提现请求" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#PostWithdrawRequestForCraftman").click(function () {
+                $.post('/api/pay/WithdrawRequestForCraftman',
+                    {
+                        CraftmanPhone: "18201289456",
+                        Sum: "100",
+                        BankAccName: "BankAccName",
+                        BankAccount: "BankAccount",
+                        OpenBank: "OpenBank",
+                        Alipay: "Alipay",
+                        Wiexin: "Wiexin"
+                    },
+                    function (json) {
+                        $("#All_result").append("发送手艺人提现请求<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    }, "json");
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="CraftmanInfoByID" value="手艺人资料查看通过ID" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#CraftmanInfoByID").click(function () {
+                $.getJSON('/api/Craftman/ByID/2', function (json) {
+                    $("#All_result").append("手艺人资料查看通过ID<br>");
+                    $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="SaleHistoryForComplete" value="查询商品购买历史已完成" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#SaleHistoryForComplete").click(function () {
+                $.getJSON('/api/Sale/HistoryForComplete/18610240123/2/1',
+                    function (json) {
+                        $("#All_result").append("查询商品购买历史已完成<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="SaleHistoryForNotComplete" value="查询商品购买历史未完成" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#SaleHistoryForNotComplete").click(function () {
+                $.getJSON('/api/Sale/HistoryForNotComplete/18610240123/2/1',
+                    function (json) {
+                        $("#All_result").append("查询商品购买历史未完成<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RepairUserHistoryForComplete" value="用户的已完成维修单列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RepairUserHistoryForComplete").click(function () {
+                $.getJSON('/api/RepairOrder/UserHistoryForComplete/18610240123/2/1',
+                    function (json) {
+                        $("#All_result").append("用户的已完成维修单列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RepairUserHistoryForNotComplete" value="用户的未完成维修单列表" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RepairUserHistoryForNotComplete").click(function () {
+                $.getJSON('/api/RepairOrder/UserHistoryForNotComplete/18610240123/2/1',
+                    function (json) {
+                        $("#All_result").append("用户的未完成维修单列表<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
+
+<div>
+    <p><input type="button" id="RepairOrdersOfCraftman" value="手艺人订单查询" /></p>
+    <script>
+        $(document).ready(function () {
+            $("#RepairOrdersOfCraftman").click(function () {
+                $.getJSON('/api/RepairOrder/Craftman/18201289500/2/1',
+                    function (json) {
+                        $("#All_result").append("手艺人订单查询<br>");
+                        $("#All_result").append(JSON.stringify(json) + "<p></p>");
+                    });
+            });
+        });
+    </script>
+</div>
